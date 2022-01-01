@@ -26,9 +26,9 @@ def get_date_and_duration(name, episodes) -> pd.DataFrame:
 
 def create_cdf(df):
     fig_dur = px.ecdf(df, x='date', y='duration', color='name',
-                      ecdfnorm=None, labels={'duration': 'エピソード時間'})
+                      ecdfnorm=None, labels={'duration': 'episode duration'})
     fig_ep = px.ecdf(df, x='date', y='one', color='name',
-                     ecdfnorm=None, labels={'one': 'エピソード数'})
+                     ecdfnorm=None, labels={'one': 'number of episodes'})
     fig_dur.write_image('out/fig_dur.png')
     fig_ep.write_image('out/fig_ep.png')
     # fig_dur.show()
