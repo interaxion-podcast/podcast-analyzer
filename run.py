@@ -17,7 +17,7 @@ def get_date_and_duration(name, episodes) -> pd.DataFrame:
     dic = {'date': [], 'duration': [], 'name': [], 'one': []}
     for e in episodes:
         dic['date'].append(date.fromtimestamp(e['published']))
-        dic['duration'].append(e['total_time'])
+        dic['duration'].append(e['total_time']/60/60/24)
         dic['one'].append(1)
         dic['name'].append(name)
     df = pd.DataFrame.from_dict(dic)
@@ -26,7 +26,7 @@ def get_date_and_duration(name, episodes) -> pd.DataFrame:
 
 def create_cdf(df):
     fig_dur = px.ecdf(df, x='date', y='duration', color='name',
-                      ecdfnorm=None, labels={'duration': 'episode duration'})
+                      ecdfnorm=None, labels={'duration': 'episode duration　（days）'})
     fig_ep = px.ecdf(df, x='date', y='one', color='name',
                      ecdfnorm=None, labels={'one': 'number of episodes'})
     fig_dur.write_image('out/fig_dur.png')
