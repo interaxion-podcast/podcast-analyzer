@@ -1,5 +1,7 @@
 - name: "#rebuildfm"
   feed: https://feeds.rebuild.fm/rebuildfm
+- name: "Bilingual News"
+  feed: https://bilingualnews.libsyn.com/rss
 - name: "#backspacefm"
   feed: https://feeds.backspace.fm/backspacefm
 - name: "#hopeofbirds"
