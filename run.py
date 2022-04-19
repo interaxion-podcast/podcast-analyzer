@@ -31,6 +31,8 @@ def create_cdf(df):
                      ecdfnorm=None, labels={'one': 'number of episodes'})
     fig_dur.write_image('out/fig_dur.png')
     fig_ep.write_image('out/fig_ep.png')
+    fig_dur.write_html('docs/duration.html')
+    fig_ep.write_html('docs/number-of-episodes.html')
     # fig_dur.show()
     # fig_ep.show()
 
